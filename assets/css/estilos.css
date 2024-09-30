@@ -1,0 +1,166 @@
+
+:root {
+    --background-body: #000000;
+    --background-caja: #ffffff;
+    --border-caja: rgb(78, 72, 65);
+    --color-cajitas: #2c302a; 
+    --color-p: rgb(0, 0, 0);
+    --hover-color:  #C7A56B; /* Color de hover para botones */
+}
+
+body {
+    font-family: Poppins, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 200vh;
+    margin: 0;
+    background-color: var(--background-body);
+}
+
+.caja {
+    position: absolute;
+    top: 10%;
+    background-color: var(--background-caja);
+    width: 90%; /*porcentaje para más flexibilidad */
+    max-width: 700px; /* Limitar ancho máximo */
+    padding: 20px;
+    border: 1px solid var(--border-caja); /* Ajustar el borde a 10px */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(159, 118, 35, 0.1), 0 10px 30px rgba(69, 49, 9, 0.3); /* Sombreado exterior aumentado */
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+    animation: float 3s infinite ease-in-out;
+}
+/* Flotabilidad */
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.caja:hover{
+    transform: scale(1.05) rotate(2deg) translateY(-5px); /* Efecto flotar */
+    box-shadow: 0 8px 16px rgba(159, 118, 35, 0.2), 0 15px 30px rgba(69, 49, 9, 0.4); /* Aumenta la sombra */
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.imagen {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    grid-row: 1 / span 3;
+    
+}
+
+.contenido {
+    display: grid;
+    grid-template-rows: auto auto 1fr;
+    gap: 10px;
+}
+
+h1 {
+    margin: 0;
+}
+
+.p {
+    background-color: var(--color-p);
+    padding: 10px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.cajitas {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.cajita {
+    width: 100%;
+    height: 50px;
+    background-color: var(--color-cajitas);
+    box-sizing: border-box;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center; /* Centra el texto horizontalmente */
+    align-items: center; /* Centra el texto verticalmente */
+    text-decoration: none; /* Sin subrayado en el texto */
+    color: white; /* Color del texto */
+    font-weight:lighter; /* Texto  */
+    transition: background-color 0.3s; /* Efecto de transición */
+}
+
+.cajita img {
+    width: 20px; /* Ajusta el tamaño del logo */
+    height: 20px; /* Ajusta el tamaño del logo */
+    margin-right: 8px; /* Espacio entre el logo y el texto */
+}
+
+.cajita:hover {
+    background-color: var(--hover-color); /* Cambia el color al pasar el mouse */
+}
+
+@media screen and (max-width: 500px) {
+    .caja {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 700px) {
+    .caja {
+        grid-template-columns: 1fr; /* Mantiene una sola columna */
+    }
+}
+
+@media screen and (min-width: 764px) {
+    .caja {
+        flex-direction: row;
+        max-width: 800px;
+
+        grid-template-columns: 250px 1fr; /* Dos columnas en pantallas más grandes */
+       
+    }
+    .cajitas {
+        display: flex;
+        flex-direction: row;
+        
+}
+}
+@media screen and (min-width: 1024px) {
+    .caja {
+        grid-template-columns: 300px 1fr;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .caja {
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 1750px) {
+    .caja {
+        width: 800px;
+    }
+}
